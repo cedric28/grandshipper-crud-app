@@ -1,24 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-function App() {
+import Navbar from "./components/navbar";
+import Blogs from "./components/blogs";
+import About from "./components/about";
+import BlogForm from "./components/blogForm";
+import NotFound from "./common/notFound";
+import LoginForm from "./components/loginForm";
+import Logout from "./components/logout";
+import RegisterForm from "./components/registerForm";
+import auth from "./services/authService";
+import ProtectedRoute from './common/protectedRoute';
+
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
+
+const App = () => {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const user = auth.getCurrentUser();
+    if (user) {
+      setUser(user);
+    }
+  }, []);  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Navbar user={user} />
+      <ToastContainer />
+      <main role="main">
+        <Routes>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route 
+            path="/blogs/:id" 
+            element={
+              <ProtectedRoute>
+                <BlogForm />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/blogs" 
+            element={<Blogs user={user} />} 
+          />
+          <Route path="/not-found" element={<NotFound />} />
+          <Route path="/" element={<Navigate to="/blogs" />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="*" element={<Navigate to="/not-found" />} />
+        </Routes>
+      </main>
+    </React.Fragment>
   );
 }
 

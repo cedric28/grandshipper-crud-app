@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+## Project Structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project follows a clear and organized structure:
 
-## Available Scripts
+src: Contains the core source code of the application.
+common: Houses reusable components and utilities shared across the application.
+form.jsx: Handles form-related functionalities.
+input.jsx: Manages input fields.
+like.jsx: Implements the "like" functionality.
+listBox.jsx: Provides a list box component.
+listGroup.jsx: Displays items in a grouped list.
+notFound.jsx: Renders a page for when resources are not found.
+paginationBar.jsx: Implements pagination controls.
+protectedRoute.jsx: Enforces authentication for protected routes.
+searchBox.jsx: Provides a search box component.
+table.jsx: Defines a generic table structure.
+tableBody.jsx: Creates the table body.
+tableHeader.jsx: Renders the table header.
+components: Contains reusable UI components.
+about.jsx: Displays information about the application.
+blogForm.jsx: Provides a form for creating or editing blog posts.
+blogs.jsx: Lists blog posts.
+blogsTable.jsx: Displays blog posts in a table format.
+loginForm.jsx: Handles user login.
+logout.jsx: Logs the user out.
+navbar.jsx: Implements the navigation bar.
+registerForm.jsx: Allows users to register for an account.
+services: Houses services that interact with backend APIs.
+authService.js: Manages authentication-related services.
+blogService.js: Handles interactions with blog posts.
+http.js: Provides HTTP request utilities.
+logService.js: Manages logging.
+typeService.js: Handles interactions with data types.
+userService.js: Manages user-related operations.
+utils: Contains utility functions.
+paginate.js: Provides pagination functionality.
+App.css: Styles the main application component.
+App.js: The main application component.
+App.test.js: Unit tests for the App component.
+index.css: Styles the root component.
+index.js: The entry point for the application.
+logo.svg: The application logo.
+reportWebVitals.js: Reports web vitals.
+setupTests.js: Sets up test environment.
 
-In the project directory, you can run:
 
-### `npm start`
+## Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project utilizes various dependencies to enhance functionality and development:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+@testing-library/jest-dom: Provides DOM testing utilities for Jest.
+@testing-library/react: Simplifies testing React components.
+@testing-library/user-event: Simulates user interactions for testing.
+axios: Handles HTTP requests.
+bootstrap: Provides a framework for styling and responsive design.
+font-awesome: Adds icons to the application.
+http-proxy-middleware: Provides proxy capabilities for development.
+joi-browser: Performs data validation.
+jwt-decode: Decodes JSON Web Tokens.
+lodash: Provides utility functions for working with data.
+prop-types: Enables type checking for props.
+query-string: Handles URL query parameters.
+react: The core React library.
+react-dom: Renders React components into the DOM.
+react-router-dom: Enables routing in React applications.
+react-scripts: Provides tools for development, testing, and building.
+react-toastify: Implements notifications.
+react-transition-group: Provides animation and transition utilities.
+web-vitals: Collects web vitals for performance analysis.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Development Setup
+To run the application locally, follow these steps:
 
-### `npm run build`
+Clone the repository:
+git clone <repository-url>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install dependencies:
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Start the development server:
+npm start
