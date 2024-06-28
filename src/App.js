@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { Routes, Route, Navigate } from "react-router-dom";
-
+import { UserContext } from "../src/context";
 import Navbar from "./components/navbar";
 import Blogs from "./components/blogs";
 import About from "./components/about";
@@ -20,15 +20,20 @@ const App = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
+    fetchUser();
+  }, []);  
+
+  const fetchUser = () => {
     const user = auth.getCurrentUser();
     if (user) {
       setUser(user);
     }
-  }, []);  
+  }
 
   return (
     <React.Fragment>
-      <Navbar user={user} />
+      <UserContext.Provider value={{ user }}>
+      <Navbar />
       <ToastContainer />
       <main role="main">
         <Routes>
@@ -45,7 +50,7 @@ const App = () => {
           />
           <Route 
             path="/blogs" 
-            element={<Blogs user={user} />} 
+            element={<Blogs />} 
           />
           <Route path="/not-found" element={<NotFound />} />
           <Route path="/" element={<Navigate to="/blogs" />} />
@@ -53,6 +58,7 @@ const App = () => {
           <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>
       </main>
+      </UserContext.Provider>
     </React.Fragment>
   );
 }

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext} from "react";
+import { UserContext } from "../context";
 import { NavLink } from "react-router-dom";
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
+  const { user } = useContext(UserContext);
   const hasUser = Object.keys(user).length > 0;
   return (
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">

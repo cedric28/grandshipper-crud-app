@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
+import { UserContext } from "../context";
 import { getBlogs, deleteBlog } from "../services/blogService";
 import { getTypes } from "../services/typeService";
 import { paginate } from "../utils/paginate";
@@ -10,8 +11,8 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import _ from "lodash";
 
-const Blogs = ({ user }) => {
-  console.log('user',user)
+const Blogs = () => {
+  const { user } = useContext(UserContext);
   const hasUser = Object.keys(user).length > 0;
   const [blogs, setBlogs] = useState([]);
   const [types, setTypes] = useState([]);
